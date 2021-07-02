@@ -9,16 +9,16 @@ import random
 # model.save_pretrained('saved_model')
 
 
-port = 12345
-def project_id():
-    import json
-    import os
-    info = json.load(open(os.path.join(os.environ['HOME'], ".smc", "info.json"), 'r'))
-    return info['project_id']
+#port = 12345
+#def project_id():
+#    import json
+#    import os
+#    info = json.load(open(os.path.join(os.environ['HOME'], ".smc", "info.json"), 'r'))
+#    return info['project_id']
 
-base_url = "/%s/port/%s/" % (project_id(), port)
-static_url = "/%s/port/%s/static" % (project_id(), port)
-app = Flask(__name__, static_url_path=static_url)
+#base_url = "/%s/port/%s/" % (project_id(), port)
+#static_url = "/%s/port/%s/static" % (project_id(), port)
+app = Flask(__name__)
 
 model = AutoModelForCausalLM.from_pretrained("saved_model")
 
@@ -30,23 +30,23 @@ set_of_questions=[ 'Can we go out together?', 'What is your color?', 'Are you a 
                  "What’s the worst job you’ve ever had?", "Do you believe in astrology?","Have you ever lost a friend?","What is your biggest irrational fear?"]
 bot2_result = ""
 
-@app.route(base_url)
+@app.route("/")
 def home():
     name = "ChatBot Home - Universal"
     return render_template('Home.html', name=name)
 
 
-@app.route(base_url+"/human2bot_get", methods=['POST', 'GET'])
+@app.route("/human2bot_get", methods=['POST', 'GET'])
 def get_human2bot_response():
     userText = request.args.get('msg')
     return respond_bot2human(userText)
 
 
-@app.route(base_url+"/bot2bot_get", methods=['POST', 'GET'])
+@app.route("/bot2bot_get", methods=['POST', 'GET'])
 def get_bot2bot_response():
     return respond_bot2bot()
 
-@app.route(base_url+"/reset", methods=['POST', 'GET'])
+@app.route("/reset", methods=['POST', 'GET'])
 def reset():
     global start
     global chat_history_bot2human
@@ -97,9 +97,9 @@ def respond_bot2bot():
     return {"bot1":bot1_result,"bot2":bot2_result}
 
 
-if __name__ == "__main__":
-    # you will need to change code.ai-camp.org to other urls if you are not running on the coding center.
-    print("Try to open\n\n    https://cocalc3.ai-camp.org" + base_url + '\n\n')
-    app.run(host = '0.0.0.0', port = port, debug=True)
+#if __name__ == "__main__":
+#   you will need to change code.ai-camp.org to other urls if you are not running on the coding center.
+#    print("Try to open\n\n    https://cocalc3.ai-camp.org" + base_url + '\n\n')
+#    app.run(host = '0.0.0.0', port = port, debug=True)
     
-    import sys; sys.exit(0)
+#    import sys; sys.exit(0)
