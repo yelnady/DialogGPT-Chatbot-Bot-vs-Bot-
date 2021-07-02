@@ -178,7 +178,7 @@
           document.getElementById('bot2bot').scrollIntoView({block: 'end', behavior: 'smooth'});
           
           //Send a get method to that link, and when done --> append to whatever we have
-          $.get("https://cocalc3.ai-camp.org/3e080ba6-1476-4b72-953b-1b591cbf600a/port/12345/human2bot_get", { msg: rawText }).done(function(data) {
+          $.get("https://chatbot.ai-camp.org/human2bot_get", { msg: rawText }).done(function(data) {
             var botHtml = $('<p class="botText"><span>' + data + '</span></p>').hide();;
             $("#chatbox").append(botHtml);
             botHtml.fadeIn()
@@ -188,7 +188,7 @@
         
         function human2botReset(){
          
-          $.get("https://cocalc3.ai-camp.org/3e080ba6-1476-4b72-953b-1b591cbf600a/port/12345/reset", { }).done(function(data) {
+          $.get("https://chatbot.ai-camp.org/reset", { }).done(function(data) {
              
             $("#chatbox").html('<p class="botText"><span>Hi! I\'m your personal ChatBot ❤️</span></p>')
         });
@@ -238,7 +238,7 @@
       </div>
       <script>
         function getBotBotResponse() { 
-           $.get("https://cocalc3.ai-camp.org/3e080ba6-1476-4b72-953b-1b591cbf600a/port/12345/bot2bot_get", { }).done(function(data) {
+           $.get("https://chatbot.ai-camp.org/bot2bot_get", { }).done(function(data) {
             var botHtml1 = $('<p class="botText"><span>' + data['bot1'] + '</span></p>').hide();
             $("#chatbox2").append(botHtml1);
              botHtml1.fadeIn()
@@ -250,7 +250,7 @@
         
         function bot2botReset(){
          
-          $.get("https://cocalc3.ai-camp.org/3e080ba6-1476-4b72-953b-1b591cbf600a/port/12345/reset", { }).done(function(data) {
+          $.get("https://chatbot.ai-camp.org/reset", { }).done(function(data) {
              
             $("#chatbox2").html('<p class="botText"><span>Click The Button to Start ❤️</span></p>')
         });
