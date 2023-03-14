@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <title>ChatBot - Universal</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/nicepage.css" media="screen">
+<link rel="stylesheet" href="../static/Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../static/nicepage.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script class="u-script" type="text/javascript" src="../static/jquery-1.9.1.min.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700">
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "universal"
+}</script>
+    <style>
+     
+    
+      #chatbox {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        margin-top: 60px;
+      }
+      #userInput {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 60px;
+      }
+      #textInput {
+        width: 90%;
+        border: none;
+        border-bottom: 3px solid black;
+        font-family: monospace;
+        font-size: 17px;
+      }
+       
+      .userText {
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: right;
+        line-height: 30px;
+      }
+      .userText span {
+        background-color: #808080;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      .botText {
+        color: white;
+        font-family: monospace;
+        font-size: 17px;
+        text-align: left;
+        line-height: 30px;
+      }
+      .botText span {
+        background-color: #dc545c;
+        padding: 10px;
+        border-radius: 2px;
+      }
+
+      .boxed {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        margin-top: 60px;
+        border: 1px solid red;
+        justify-content: center;
+  align-items: center;
+  
+      }
+     .button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f4545c;
+}
+
+.button1:hover {
+  background-color: #f4545c;
+  color: white;
+}
+
+    </style>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body">
+    <section class="u-clearfix u-palette-2-light-2 u-section-1" id="carousel_a845">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-center-lg u-align-center-sm u-align-center-xl u-align-center-xs u-container-style u-layout-cell u-left-cell u-palette-2-base u-size-30 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <h2 class="u-align-center-md u-text u-text-1">ChatBot</h2>
+                <p class="u-align-center-md u-text u-text-white u-text-2" spellcheck="true">Created by <b>Ryan Chan</b>,<b> Bowen Hu</b>, <b>Gary Weibel</b>, <b>Marcus Hsieh</b>, <b>Rachel Baek</b>, <b>Daniel Lin</b>, <b>Yusuf Elnady</b> at <b>AI Camp</b>.
+                </p><span class="u-icon u-icon-circle u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 491.996 491.996" style=""><use xlink:href="#svg-d9c8"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-d9c8" x="0px" y="0px" viewBox="0 0 491.996 491.996" style="enable-background:new 0 0 491.996 491.996;" xml:space="preserve" class="u-svg-content"><g><g><path d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848    L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128    c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084    c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224    C491.996,136.902,489.204,130.046,484.132,124.986z"></path>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></span>
+                <h6 class="u-text u-text-3" spellcheck="false">We created the ChatBot because not everyone has someone they can rely on or even talk to. With our app, our users will automatically have "someone" that will be willing to help, comfort, or guide you.&nbsp;</h6>
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-palette-2-light-2 u-right-cell u-size-30 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <img class="u-expanded-width u-image u-image-1" src="../static/images/1_e8v1xC0NTgoduh_ei9F7Pw.png" data-image-width="1024" data-image-height="573">
+                <img class="u-expanded-width u-image u-image-default u-image-2" src="../static/images/chatbot-at-desk-messaging-760.png" alt="" data-image-width="760" data-image-height="440">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-d6c1">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <img class="u-image u-image-default u-image-1" src="../static/images/human2bot.png" alt="" data-image-width="1455" data-image-height="599">
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <h1 class="u-align-center u-text u-text-palette-2-base u-text-1" data-animation-name="flash" data-animation-duration="2000" data-animation-delay="500" data-animation-direction="">Try our ChatBot!</h1>
+                <h2 class="u-text u-text-2" spellcheck="false">Our ChatBot provides 24-hour human interactions and reliable responses all through your phone!&nbsp;</h2>
+                
+                <div class="boxed">
+      <div>
+        <div id="chatbox" >
+          
+          <p class="botText">
+            <span>Hi! I'm your personal ChatBot ❤️</span>
+          </p>
+        </div>
+        <div id="userInput" style="display:flex; justify-content:center; align-items:center"  >
+          <input id="textInput" type="text"  name="message" placeholder="Message" />
+           <button  id="button_reset_" onclick=" human2botReset()"  >Clear</button>
+        </div>
+      </div>
+      <script>
+        function getHumanBotResponse() {
+          // Get the user Input from the Text Input --> rawText
+          var rawText = $("#textInput").val();
+          
+          //Prepare my text as HTML Code
+          var userHtml = $('<p class="userText"><span>' + rawText + '</span></p>').hide();
+          
+          //Erase my data in Text Input
+          $("#textInput").val("");
+
+          //Add The HTML Code to the Chatbox with Effect and Scroll
+          $("#chatbox").append(userHtml);
+          userHtml.fadeIn() ;
+          document.getElementById('bot2bot').scrollIntoView({block: 'end', behavior: 'smooth'});
+          
+          //Send a get method to that link, and when done --> append to whatever we have
+          $.get("http://127.0.0.1:12345/human2bot_get", { msg: rawText }).done(function(data) {
+            var botHtml = $('<p class="botText"><span>' + data + '</span></p>').hide();;
+            $("#chatbox").append(botHtml);
+            botHtml.fadeIn()
+            document.getElementById('bot2bot').scrollIntoView({block: 'end', behavior: 'smooth'});
+          });
+        }
+        
+        function human2botReset(){
+         
+          $.get("http://127.0.0.1:12345/reset", { }).done(function(data) {
+             
+            $("#chatbox").html('<p class="botText"><span>Hi! I\'m your personal ChatBot ❤️</span></p>')
+        });
+        }
+        //This Text Input Press is out of the Function, So we just call it when we want to call it
+        $("#textInput").keypress(function(e) {
+            if ((e.which == 13) && document.getElementById("textInput").value != "" ){
+                getHumanBotResponse();
+            }
+        });
+        
+      </script>
+    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <section class="u-align-center u-clearfix u-grey-5 u-section-3" id="sec-a490">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-text u-text-palette-2-base u-text-1" spellcheck="false" id='bot2bot'>ChatBot vs. ChatBot</h1>
+        <a  class="u-border-0 u-btn u-button-style u-color-scheme-summer-time u-color-style-multicolor-1 u-palette-2-base u-btn-1">Let's Try</a>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-grey-5 u-section-4" id="sec-c95f">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-size-28 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                
+                <div class="boxed">
+      <div>
+       
+        <div id="chatbox2"   >
+          
+          <p class="botText">
+            <span>Click The Button to Start ❤️</span>
+          </p>
+        </div>
+        <div id="userInputt" style="display:flex; justify-content:center; align-items:center">
+         <button  id="button_bot2bot" onclick=" getBotBotResponse()" class="button button1">Converse!</button>
+          <button  id="button_reset" onclick=" bot2botReset()" class="button button1">Reset</button>
+        </div>
+      </div>
+      <script>
+        function getBotBotResponse() { 
+           $.get("http://127.0.0.1:12345/bot2bot_get", { }).done(function(data) {
+            var botHtml1 = $('<p class="botText"><span>' + data['bot1'] + '</span></p>').hide();
+            $("#chatbox2").append(botHtml1);
+             botHtml1.fadeIn()
+              var botHtml2 = $('<p class="userText"><span>' + data['bot2'] + '</span></p>').hide();
+             $("#chatbox2").append(botHtml2)
+             botHtml2.delay( 1000 ).fadeIn()
+          });
+        }
+        
+        function bot2botReset(){
+         
+          $.get("http://127.0.0.1:12345/reset", { }).done(function(data) {
+             
+            $("#chatbox2").html('<p class="botText"><span>Click The Button to Start ❤️</span></p>')
+        });
+        }
+      </script>
+    </div>
+              </div>
+            </div>
+            <div class="u-align-left u-container-style u-layout-cell u-size-32 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <img class="u-image u-image-default u-image-1" src="../static/images/bot2bot.png" alt="" data-image-width="1492" data-image-height="619">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-image u-shading u-section-5" src="" data-image-width="1200" data-image-height="590" id="sec-f577">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-custom-font u-font-montserrat u-text u-title u-text-1" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Inspiration</h1>
+        <p class="u-align-justify u-large-text u-text u-text-variant u-text-2" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
+          <span style="font-weight: normal;">Perhaps now more than ever, communication is a primal factor in everyday life.&nbsp;<br>We built a multifaceted chatbot that can accommodate to various situations; whether you want to practice conversations to hone communicative skills, or you're simply bored, this chatbot is capable of it all.
+          </span>
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-6" id="carousel_5740">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-51 u-layout-cell-1">
+                <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                  <h3 class="u-text u-text-1">DialoGPT</h3>
+                  <p class="u-align-justify u-text u-text-2" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">DialoGPT is the model that our chatbot is based on. It is a <span class="u-text-palette-2-base"><b>transformer-</b>
+                    </span>
+                    <span class="u-text-palette-2-base"><b>based</b>
+                    </span>chatbot derived from GPT-2. In order to create a response, the model <span class="u-text-palette-2-base"><b>encodes</b>
+                    </span>the prompt into something called <span class="u-text-palette-2-base"><b>context</b>
+                    </span>. To generate a response, the model will <span class="u-text-palette-2-base"><b>decode</b>
+                    </span>the context into the model's response. The model is also <span class="u-text-palette-2-base"><b>tunable</b>
+                    </span>, this mean that the model can continue to be trained to suit more niche cases.&nbsp;
+                  </p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-9 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <img class="u-image u-image-default u-preserve-proportions u-image-1" src="../static/images/encodeicon.png" alt="" data-image-width="200" data-image-height="200">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-7" id="sec-acf5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-51 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h3 class="u-text u-text-1"><b>The dataset</b>
+                  </h3>
+                  <p class="u-align-justify u-text u-text-2" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">The dataset used to create the DialoGPT is a large collection of&nbsp;<span class="u-text-palette-2-base"><b>Reddit&nbsp;</b>
+                    </span>exchanges spanning from 2005 to 2017. This data was then&nbsp;<span class="u-text-custom-color-2"><b>
+                        <span class="u-text-palette-2-base">filtered</span>&nbsp;</b>
+                    </span>by removing non-English sentence, and keeping only&nbsp;<span class="u-text-palette-2-base"><b>plain text</b>
+                    </span>. The text was further filtered by removing instances where a large majority of the text had been seen before. After this filtering, the data set had 150 million dialog instances.&nbsp;
+                  </p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-9 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <div class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="225" data-image-height="225"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-8" id="sec-e681">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-51 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h3 class="u-text u-text-1"><b>Parameters</b>
+                  </h3>
+                  <p class="u-align-justify u-text u-text-2" data-animation-name="fadeIn" data-animation-duration="1000" data-animation-delay="0">DialoGPT comes in three different&nbsp;<span class="u-text-palette-2-base"><b>varieties</b>
+                    </span>: small, medium, and large. The small variety has 117 million parameters, the medium has 345 million, and the large has <span class="u-text-palette-2-base"><b>762 million</b>
+                    </span>. Some of the&nbsp;<span class="u-text-palette-2-base"><b>hyperparameters&nbsp;</b>
+                    </span>associated with this model are the RNG seed, the max sequence length, the batch size, the&nbsp;<span class="u-text-palette-2-base"><b>learning rate</b>
+                    </span>, and the size of accumulation steps.
+                  </p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-9 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <img class="u-image u-image-default u-preserve-proportions u-image-1" src="../static/images/parametericon.png" alt="" data-image-width="200" data-image-height="200">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-fd31">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-align-center-xs u-text u-text-default u-title u-text-1" autocomplete="off" spellcheck="false">Background: Transformer Models</h1>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="sec-a783">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <img class="u-image u-image-default u-image-1" src="../static/images/transformer-encoder-block-2.png" alt="" data-image-width="1439" data-image-height="720">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <div class="u-container-style u-group u-image u-image-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-image-width="541" data-image-height="266">
+                    <div class="u-container-layout u-container-layout-3">
+                      <h3 class="u-text u-text-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Encoder-Based</h3>
+                      <p class="u-align-justify u-text u-text-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">These models rely on the encoder part of the original transformer and use no mask so the model can look at all the tokens/words in the attention heads (The future). They are pretrained by corrupting the input tokens in some way and trying to reconstruct the original sentence.&nbsp;<br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-829b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-container-style u-group u-image u-image-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-image-width="541" data-image-height="266">
+                    <div class="u-container-layout">
+                      <h3 class="u-text u-text-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Decoder-Based</h3>
+                      <p class="u-align-justify u-text u-text-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">These models rely on the decoder part of the original transformer and use an attention mask so that at each position, the model can only look at the tokens before the attention heads. Decoder-based models are trained on the classic language modeling task: guess the next token having read all the previous ones.<br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-3">
+                  <img class="u-expanded-width u-image u-image-default u-image-2" src="../static/images/transformer-decoder-block-2.png" alt="" data-image-width="1440" data-image-height="766">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="sec-6cc4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-image u-image-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-image-width="541" data-image-height="266">
+                    <div class="u-container-layout u-container-layout-2">
+                      <h3 class="u-text u-text-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Seq2Seq Transformer</h3>
+                      <p class="u-align-justify u-text u-text-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">They use both the encoder and the decoder of the original transformer. Their most natural applications are translation, summarization, and question answering. The original transformer model is an example of such a model (only for translation).<br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-top u-container-layout-3">
+                  <div class="u-container-style u-group u-image u-image-2" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-image-width="541" data-image-height="266">
+                    <div class="u-container-layout">
+                      <h3 class="u-text u-text-3" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Multimodal</h3>
+                      <p class="u-align-justify u-text u-text-4" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Multimodal models incorporate information from multiple sources as they mix text inputs with other kinds (e.g. images). Some tasks they can do are Visual Question Answering, Image Captioning, Creating Images from Text.<br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-13" id="sec-49e1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-left-cell u-size-20 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-container-layout-1">
+                  <h2 class="u-align-center u-text u-text-palette-2-base u-text-1" spellcheck="false">DialoGPT Structure</h2>
+                  <p class="u-align-center u-text u-text-2" spellcheck="false">Our DialoGPT model is only a <span class="u-text-palette-2-base"><b>decoder-based</b>
+                    </span> transformer architecture that leverages a stack of<b>
+                      <span class="u-text-palette-2-base"> masked multi-head self-attention</span></b> layers to train on massive web-text data.
+                  </p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-40 u-size-xs-60 u-layout-cell-2" src="">
+                <div class="u-container-layout u-container-layout-2" src="">
+                  <img class="u-expanded-width u-image u-image-default u-image-1" src="../static/images/transformer-decoder-intro.png" alt="" data-image-width="1440" data-image-height="654">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-section-14" id="sec-6529">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-center u-container-style u-grey-5 u-group u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h1 class="u-text u-text-1" spellcheck="false">Why not RNN nor LSTM?</h1>
+            <p class="u-text u-text-2" spellcheck="false">As a team, we started experimenting with our project using RNN. However, the results were decidedly unsatisfying. Subsequently, we used the state-of-the-art transformer models instead, as they are better, faster, and achieve higher fidelity.</p>
+            <a href="https://medium.com/analytics-vidhya/transformer-vs-rnn-and-cnn-18eeefa3602b" class="u-btn u-btn-round u-button-style u-color-scheme-summer-time u-color-style-multicolor-1 u-palette-2-base u-radius-50 u-btn-1">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-palette-2-light-1 u-section-15" id="sec-f1f2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-custom-font u-font-oswald u-text u-text-1" spellcheck="false">Data Preprocessing</h1>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img class="u-expanded-width u-image u-image-1" src="../static/images/data-cleaning-in-machine-learning-best-practices-and-methods-featured.jpg" data-image-width="1000" data-image-height="647">
+                <h4 class="u-text u-text-2" spellcheck="false">Cleaning Data</h4>
+                <ul class="u-text u-text-3" spellcheck="false">
+                  <li>The first step was to turn our dataset into a useable form by preprocessing the text files and loading them into Python.</li>
+                  <li>Removing unnecessary metadata, files, features, and rows of missing values.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img class="u-expanded-width u-image u-image-2" src="../static/images/gf3fe7dcec01db1853c40b211b0ad11929755f526371be58d6073af4d3999e62c69ee830128e3889c1cef7cabd923de1a08e66dd894b2900f0d51f0199f8183d0_1280.jpg" data-image-width="1280" data-image-height="1107">
+                <h4 class="u-text u-text-4" spellcheck="false">Connect Conversations</h4>
+                <ul class="u-text u-text-5" spellcheck="false">
+                  <li>Linking together lines to form coherent conversations is essential in achieving a functional chatbot.</li>
+                  <li>We had many files, and we needed to connect every pair of questions and answers into one array.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-3">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <img class="u-expanded-width u-image u-image-3" src="../static/images/wooden-ascii-cubes-300.jpg" data-image-width="300" data-image-height="200">
+                <h4 class="u-text u-text-6" spellcheck="false">Normalizing</h4>
+                <ul class="u-text u-text-7" spellcheck="false">
+                  <li>Converting from Unicode to ASCII. ASCII contains only English characters which it is better to train the models on to achieve better results.</li>
+                  <li>Removing unnecessary characters. We used regular expressions to remove unrelated letters for better computer readability.<br>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-palette-2-light-1 u-section-16" id="sec-6933">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-expanded-width u-image u-image-default u-image-1" alt="" data-image-width="400" data-image-height="291" src="../static/images/Personalised-hairdresser-scissors-picture-Scissors-word-cloud-Barber.jpg">
+                <h4 class="u-text u-text-1" spellcheck="false">Trimming the&nbsp; Infrequent Words</h4>
+                <ul class="u-text u-text-2" spellcheck="false">
+                  <li>We remove unfrequent words to let the model focus on the most important tokens. We treat our threshold as a hyperparameter.&nbsp;&nbsp;</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-expanded-width u-image u-image-default u-image-2" alt="" data-image-width="1024" data-image-height="684" src="../static/images/Depositphotos_265890040_l-2015-1024x684.jpg">
+                <h4 class="u-text u-text-3" spellcheck="false">Trimming the Very Long Sentences</h4>
+                <ul class="u-text u-text-4" spellcheck="false">
+                  <li>Our first experiments included using RNNs and LSTMs. They cannot work very well with longer sentences without having an attention mechanism, so our decision was to trim the sentences that had more than 20 words.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <img class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-expanded-width u-image u-image-default u-image-3" alt="" data-image-width="610" data-image-height="380" src="../static/images/Storingdata.jpg">
+                <h4 class="u-text u-text-5" spellcheck="false">Storing the Final Pairs</h4>
+                <ul class="u-text u-text-6" spellcheck="false">
+                  <li>After all unsuitable pairs were removed, the remaining cleared pairs had to be stored so that they could be used later easily.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-17" id="sec-397f">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-1">Evaluation</h3>
+        <p class="u-text u-text-2">The model uses several metrics to determine the <span class="u-text-palette-2-base"><b>quality </b>
+          </span>of the response. One such metric is the <span class="u-text-palette-2-base"><b>Bleu score</b>
+          </span>. This score is meant to find how close the model gets to the expected output, while not over punishing it for using a similar word. For example, if the expected output is "I'm fine," the bot would still be <span class="u-text-palette-2-base"><b>rewarded </b>
+          </span>for outputting "I'm good." In addition, to further improve the responses, <span class="u-text-palette-2-base"><b>annotators </b>
+          </span>answered some questions about the quality of the responses, how engaging they are, and their fluentness.&nbsp;
+        </p>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-image u-shading u-section-18" src="" data-image-width="150" data-image-height="134" id="sec-a006">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-title u-text-1">Lessons Learned</h1>
+        <p class="u-large-text u-text u-text-variant u-text-2" spellcheck="false">We managed any difficulties we faced during the creation of the project by:<br>&nbsp;- seeking help through online resources<br>&nbsp;- asking people who had more knowledge and experience than us questions about things we didn’t understand<br>
+          <br>Throughout the three weeks in which we made this project, we learned many valuable lessons.<br>&nbsp;- Not only did we learn a lot about AI and Python, but we also learned about the value of learning effectively, communication, and leadership.<br>&nbsp;- By making this project, we have gained a lot of knowledge about what it means to work as a team and what makes a team effective and efficient.<br>
+        </p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-palette-2-light-3 u-section-19" id="sec-ec20">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <h2 class="u-text u-text-palette-2-base u-text-1" spellcheck="false">-MEET THE TEAM-</h2>
+        <div id="carousel-1c88" data-interval="4000" data-u-ride="carousel" class="pointer-event u-carousel u-slider u-slider-1">
+          <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
+            <li data-u-target="#carousel-1c88" class="u-active u-grey-30" data-u-slide-to="0"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="1"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="2"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="3"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="4"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="5"></li>
+            <li data-u-target="#carousel-1c88" class="u-grey-30" data-u-slide-to="6"></li>
+          </ol>
+          <div class="u-carousel-inner" role="listbox">
+            <div class="u-active u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-1">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-1" data-image-width="418" data-image-height="562" src="../static/images/ScreenShot2021-06-29at11.44.45AM.png">
+                <h3 class="u-text u-text-2" spellcheck="false">Gary Weibel</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-3" spellcheck="false">I will be a senior in high school this upcoming semester. My dream is to be able continue learning new things to help others.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-1">product manager</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-2">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-2" data-image-width="398" data-image-height="526" src="../static/images/ScreenShot2021-06-29at11.46.26AM.png">
+                <h3 class="u-text u-text-4" spellcheck="false">Marcus Hsieh</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-5" spellcheck="false">I am in high school and am heading into my junior year. My dream is to be always learning and help anyone I can.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-2">&nbsp;ML Engineer</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-3">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-3" data-image-width="394" data-image-height="466" src="../static/images/ScreenShot2021-06-29at11.49.24AM.png">
+                <h3 class="u-text u-text-6" spellcheck="false">Ryan Chan</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-7" spellcheck="false">I will be a junior in high school next year. My dream is to become the best version of myself.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-3">data scientist</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-4">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-4" data-image-width="358" data-image-height="490" src="../static/images/ScreenShot2021-06-29at11.51.37AM.png">
+                <h3 class="u-text u-text-8" spellcheck="false">Rachel Baek</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-9" spellcheck="false">An incoming sophomore in high school, I enjoy all aspects of designing and aspire to pursue an intersection of that field and computer science.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-4">web developer</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-5">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-5" data-image-width="392" data-image-height="512" src="../static/images/ScreenShot2021-06-29at1.06.59PM.png">
+                <h3 class="u-text u-text-10" spellcheck="false">Bowen Hu</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-11" spellcheck="false">I will be a junior in high school next semester. My dream is to make everyday life more convenient through innovation.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-5">ml engineer</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-6">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-6" data-image-width="392" data-image-height="512" src="../static/images/ScreenShot2021-06-29at1.07.43PM.png">
+                <h3 class="u-text u-text-12" spellcheck="false">Daniel Lin</h3>
+                <p class="u-text u-text-palette-1-dark-2 u-text-13" spellcheck="false">I am in high school and my dream is to be able to have a positive impact on the world through creating new things.</p>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-6">mathematician</a>
+              </div>
+            </div>
+            <div class="u-align-left u-carousel-item u-container-style u-slide">
+              <div class="u-container-layout u-container-layout-7">
+                <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-7" data-image-width="414" data-image-height="502" src="../static/images/ScreenShot2021-06-29at1.08.13PM.png">
+                <h3 class="u-text u-text-14" spellcheck="false">Yusuf Elnady</h3>
+                <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-palette-1-dark-1 u-none u-text-black u-text-hover-white u-btn-7">instructor</a>
+                <p class="u-text u-text-palette-1-dark-2 u-text-15" spellcheck="false">Data Science Researcher with an interest in the latest advances in deep learning.<br>
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-grey-70 u-icon-circle u-spacing-9 u-text-body-alt-color u-text-hover-palette-2-base u-carousel-control-1" href="#carousel-1c88" role="button" data-u-slide="prev">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
+                    c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
+            </span>
+            <span class="sr-only">+Previous</span>
+          </a>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-grey-70 u-icon-circle u-spacing-9 u-text-body-alt-color u-text-hover-palette-2-base u-carousel-control-2" href="#carousel-1c88" role="button" data-u-slide="next">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 477.175 477.175"><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
+                    c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"></path></svg>
+            </span>
+            <span class="sr-only">+Next</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-ba20"><div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-1">Resources:<br>
+          <a href="https://huggingface.co/transformers/model_summary.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Summary of the models</a>
+          <br>
+          <a href="https://arxiv.org/abs/1911.00536" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">DialoGPT: Large-Scale Generative Pre-training for Conversational Response Generation</a>
+          <br>
+          <a href="https://jalammar.github.io/illustrated-gpt2/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">The Illustrated GPT-2&nbsp;</a>
+          <br>
+        </p>
+      </div></footer>
+     
+  </body>
+</html>
